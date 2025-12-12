@@ -80,5 +80,5 @@ Built with **.NET 8 (WPF)**, it acts as a local server that generates unique dyn
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by Code Luck</sub>
+  <sub>Built with ❤️ by CODE LUCK</sub>
 </div>
