@@ -67,9 +67,15 @@ Built with **.NET 8 (WPF)**, it acts as a local server that generates unique dyn
 
 ## 👨‍💻 Developed By
 
-**Code Luck**
+**Code Luck Team**
 - [GitHub Profile](https://github.com/cluckegy)
 - [Discord Community](https://discord.gg/2zeME6Ea)
+
+### 🌟 Special Thanks to our Core Team Members:
+> Huge appreciation for their dedication and hard work in bringing this project to life!
+
+- **[@engmohamedsherif](https://github.com/engmohamedsherif)** - *Core Contributor & Developer*
+- **[@MoGLCL](https://github.com/MoGLCL)** - *Core Contributor & Developer*
 
 ---
 
