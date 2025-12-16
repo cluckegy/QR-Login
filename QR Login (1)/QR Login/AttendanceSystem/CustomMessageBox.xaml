@@ -1,0 +1,52 @@
+<Window x:Class="AttendanceSystem.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Message" Height="180" Width="360"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True">
+
+    <Border CornerRadius="8" Background="White" BorderBrush="#e5e7eb" BorderThickness="1" Margin="0,0,0,-19">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.1" Color="#000"/>
+        </Border.Effect>
+        
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0" Margin="0,0,0,12">
+                <TextBlock x:Name="txtTitle" Text="Message" FontWeight="SemiBold" FontSize="15" Foreground="#1f2937"/>
+                <Button Content="✕" Click="BtnClose_Click" HorizontalAlignment="Right" 
+                        Width="24" Height="24" Padding="0"
+                        Background="Transparent" Foreground="#9ca3af" 
+                        BorderThickness="0" FontSize="12" Cursor="Hand"/>
+            </Grid>
+
+            <!-- Message -->
+            <TextBlock Grid.Row="1" x:Name="txtMessage" Text="Message" 
+                       Foreground="#6b7280" TextWrapping="Wrap" FontSize="13"/>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+                <Button x:Name="btnYes" Content="Yes" Click="BtnYes_Click" 
+                        Height="32" Padding="16,0" Margin="0,0,8,0" Visibility="Collapsed" 
+                        Background="#10b981" FontSize="12"/>
+                
+                <Button x:Name="btnNo" Content="No" Click="BtnNo_Click" 
+                        Height="32" Padding="16,0" Margin="0,0,8,0" Visibility="Collapsed" 
+                        Background="#f3f4f6" Foreground="#6b7280" FontSize="12"/>
+                
+                <Button x:Name="btnOk" Content="OK" Click="BtnOk_Click" 
+                        Height="32" Padding="20,0" Visibility="Collapsed" 
+                        Background="#10b981" FontSize="12"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

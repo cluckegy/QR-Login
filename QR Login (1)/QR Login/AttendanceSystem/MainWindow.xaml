@@ -1,0 +1,135 @@
+<Window x:Class="AttendanceSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="QR Login" Height="802" Width="1150"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI"
+        Background="#f0f2f5">
+
+    <Grid Margin="0,0,0,-6">
+        <!-- Left Panel -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="46"/>
+            <ColumnDefinition Width="254"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Grid.Column="0" Background="White" Padding="24" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Logo -->
+                <StackPanel Grid.Row="0" Margin="0,0,0,24">
+                    <TextBlock Text="QR Login" FontSize="20" FontWeight="Bold" Foreground="#10b981"/>
+                    <TextBlock x:Name="txtSessionInfo" Text="No active session" FontSize="12" Foreground="#9ca3af" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <!-- QR Code -->
+                <Border Grid.Row="1" Background="#f9fafb" CornerRadius="12" Padding="20" Margin="0,0,0,20" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <Border Background="White" CornerRadius="8" Padding="8">
+                            <Image x:Name="imgQrLogin" Width="140" Height="140" Cursor="Hand" MouseLeftButtonUp="ImgQrLogin_Click"/>
+                        </Border>
+                        <TextBlock Text="Scan to attend" FontSize="11" Foreground="#9ca3af" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Timer -->
+                <Border Grid.Row="2" Background="#f0fdf4" CornerRadius="12" Padding="16" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock x:Name="txtTimer" Text="00:00:00" Foreground="#10b981" FontWeight="Bold" FontFamily="Consolas" FontSize="32" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+                            <Ellipse Width="8" Height="8" Fill="#10b981" Margin="0,0,6,0"/>
+                            <TextBlock x:Name="txtActiveVisitors" Text="0" Foreground="#10b981" FontWeight="SemiBold" FontSize="13"/>
+                            <TextBlock Text=" online" Foreground="#6b7280" FontSize="13"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- Buttons -->
+                <StackPanel Grid.Row="3" VerticalAlignment="Top">
+                    <Button x:Name="btnStart" Content="Start Session" Click="BtnStart_Click" 
+                            Background="#10b981" Height="42" Margin="0,0,0,8"/>
+
+                    <Button x:Name="btnStop" Content="Stop Session" Click="BtnStop_Click" IsEnabled="False"
+                            Background="#ef4444" Height="42" Margin="0,0,0,8"/>
+
+                    <Button x:Name="btnExtend" Content="Extend Time" Click="BtnExtend_Click" IsEnabled="False"
+                            Background="#f59e0b" Height="42" Margin="0,0,0,8"/>
+
+                    <Button x:Name="btnLogoutAll" Content="Logout All" Click="BtnLogoutAll_Click" IsEnabled="False"
+                            Background="#6b7280" Height="42" Margin="0,0,0,20"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="8"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Export" Click="BtnExport_Click" Background="#e0e7ff" Foreground="#4f46e5" Height="38"/>
+                        <Button Grid.Column="2" Content="Clear" Click="BtnClear_Click" Background="#f3f4f6" Foreground="#6b7280" Height="38"/>
+                    </Grid>
+                </StackPanel>
+
+                <!-- Footer -->
+                <StackPanel Grid.Row="4">
+                    <Border Height="1" Background="#e5e7eb" Margin="0,0,0,12"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Code Luck" Foreground="#10b981" FontWeight="SemiBold" FontSize="11"/>
+                        <TextBlock Text=" • " Foreground="#d1d5db"/>
+                        <Button x:Name="btnDiscord" Content="Discord" Click="BtnDiscord_Click" 
+                                Background="Transparent" Foreground="#6366f1" FontSize="11" Padding="2" BorderThickness="0"/>
+                        <TextBlock Text=" • " Foreground="#d1d5db"/>
+                        <Button x:Name="btnGitHub" Content="GitHub" Click="BtnGitHub_Click" 
+                                Background="Transparent" Foreground="#6b7280" FontSize="11" Padding="2" BorderThickness="0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Column="2" Margin="20,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0" Margin="0,0,0,16">
+                <TextBlock Text="Students" FontSize="18" FontWeight="SemiBold" Foreground="#1f2937" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Border Background="White" CornerRadius="20" Padding="12,6" BorderBrush="#e5e7eb" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="txtTotalStudents" Text="0" Foreground="#1f2937" FontWeight="SemiBold"/>
+                            <TextBlock Text=" students" Foreground="#6b7280"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <!-- Table -->
+            <Border Grid.Row="1" Background="White" CornerRadius="12">
+                <DataGrid x:Name="gridStudents" AutoGenerateColumns="False" IsReadOnly="True" 
+                          GridLinesVisibility="Horizontal" HeadersVisibility="Column"
+                          VerticalScrollBarVisibility="Auto" Margin="4">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="50"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" MinWidth="160"/>
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="130"/>
+                        <DataGridTextColumn Header="Device" Binding="{Binding DeviceType}" Width="90"/>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                        <DataGridTextColumn Header="Check In" Binding="{Binding RegisterTime, StringFormat=HH:mm:ss}" Width="80"/>
+                        <DataGridTextColumn Header="Check Out" Binding="{Binding LogoutTime, StringFormat=HH:mm:ss}" Width="80"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

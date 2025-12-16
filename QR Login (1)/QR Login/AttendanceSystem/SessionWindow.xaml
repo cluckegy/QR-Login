@@ -1,0 +1,101 @@
+<Window x:Class="AttendanceSystem.SessionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New Session" Height="575" Width="400"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Border CornerRadius="12" Background="White" Margin="15">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="3" Opacity="0.15" Color="#000"/>
+        </Border.Effect>
+        
+        <Grid Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Header -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,24">
+                <TextBlock Text="New Session" FontSize="20" FontWeight="SemiBold" Foreground="#1f2937"/>
+                <TextBlock Text="Configure your session" FontSize="12" Foreground="#9ca3af" Margin="0,4,0,0"/>
+            </StackPanel>
+            
+            <!-- Content -->
+            <StackPanel Grid.Row="1">
+                
+                <!-- Department (Hidden for code, shown as text) -->
+                <ComboBox x:Name="cmbDepartment" Visibility="Collapsed">
+                    <ComboBoxItem Content="Computer Science Teacher (English)" IsSelected="True"/>
+                </ComboBox>
+                
+                <TextBlock Text="Department" Foreground="#6b7280" FontSize="12" FontWeight="Medium" Margin="0,0,0,8"/>
+                <Border Background="#f9fafb" CornerRadius="8" BorderBrush="#e5e7eb" BorderThickness="1" Padding="14,12" Margin="0,0,0,20">
+                    <TextBlock Text="Computer Science Teacher (English)" Foreground="#1f2937" FontSize="13"/>
+                </Border>
+                
+                <!-- Grade -->
+                <TextBlock Text="Grade Level" Foreground="#6b7280" FontSize="12" FontWeight="Medium" Margin="0,0,0,8"/>
+                <ComboBox x:Name="cmbGrade" Height="44" Margin="0,0,0,20" Padding="14,0" FontSize="13" SelectionChanged="cmbGrade_SelectionChanged">
+                    <ComboBoxItem Content="First Year" IsSelected="True"/>
+                    <ComboBoxItem Content="Second Year"/>
+                    <ComboBoxItem Content="Third Year"/>
+                    <ComboBoxItem Content="Fourth Year"/>
+                </ComboBox>
+
+                <!-- Time Settings -->
+                <TextBlock Text="Duration (minutes)" Foreground="#6b7280" FontSize="12" FontWeight="Medium" Margin="0,0,0,10"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="16"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Login Time -->
+                    <Border Grid.Column="0" Background="#f0fdf4" CornerRadius="10" Padding="16,14">
+                        <StackPanel>
+                            <TextBlock Text="Login" Foreground="#10b981" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                            <TextBox x:Name="txtLoginTime" Text="15" TextAlignment="Center" FontSize="24" FontWeight="Bold"
+                                     Background="Transparent" BorderThickness="0" Foreground="#10b981" 
+                                     CaretBrush="#10b981" HorizontalAlignment="Center"/>
+                            <TextBlock Text="min" Foreground="#6b7280" FontSize="10" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Lecture Time -->
+                    <Border Grid.Column="2" Background="#fffbeb" CornerRadius="10" Padding="16,14">
+                        <StackPanel>
+                            <TextBlock Text="Lecture" Foreground="#f59e0b" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                            <TextBox x:Name="txtLectureTime" Text="60" TextAlignment="Center" FontSize="24" FontWeight="Bold"
+                                     Background="Transparent" BorderThickness="0" Foreground="#f59e0b" 
+                                     CaretBrush="#f59e0b" HorizontalAlignment="Center"/>
+                            <TextBlock Text="min" Foreground="#6b7280" FontSize="10" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </StackPanel>
+            
+            <!-- Buttons -->
+            <Grid Grid.Row="2" Margin="0,28,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="0" Content="Start Session" Click="BtnStart_Click" 
+                        Background="#10b981" Foreground="White" Height="44" FontSize="14" FontWeight="Medium"
+                        BorderThickness="0" Cursor="Hand"/>
+                
+                <Button Grid.Column="2" Content="Cancel" Click="BtnCancel_Click" 
+                        Background="#f3f4f6" Foreground="#6b7280" Height="44" FontSize="14"
+                        BorderThickness="0" Cursor="Hand"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

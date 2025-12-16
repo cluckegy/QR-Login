@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QR Login (1)", "QR Login (1)", "{55E9B768-E1C4-2DF2-D4D4-54F4069B743F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QR Login", "QR Login", "{D79491E2-A6C3-0789-DED1-3C7CB819D74B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceSystem", "QR Login (1)\QR Login\AttendanceSystem\AttendanceSystem.csproj", "{1E33967B-BA89-43DB-9054-56B474867AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Debug|x64.Build.0 = Debug|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Debug|x86.Build.0 = Debug|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Release|x64.ActiveCfg = Release|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Release|x64.Build.0 = Release|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Release|x86.ActiveCfg = Release|Any CPU
+		{1E33967B-BA89-43DB-9054-56B474867AF9}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D79491E2-A6C3-0789-DED1-3C7CB819D74B} = {55E9B768-E1C4-2DF2-D4D4-54F4069B743F}
+		{1E33967B-BA89-43DB-9054-56B474867AF9} = {D79491E2-A6C3-0789-DED1-3C7CB819D74B}
+	EndGlobalSection
+EndGlobal
